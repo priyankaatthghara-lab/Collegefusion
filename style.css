@@ -3,14 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --navbar-height:100px;
+    --maincolor: #DB670B;
+    --secondarycolor:#FDFDFD;
+}
+html{
+    scroll-behavior: smooth;
+}
+main{
+    min-height: 100%;
+    min-width: 100%;
+    flex: 1;
+}
 nav{
     position: fixed;
     top: 0;
     display:flex;
     align-items: center;
       width:100%;
-      background-color:aquamarine;
+    background-color: var(--secondarycolor);
+    color:var(--maincolor);
      z-index: 1000;
+     height: var(--navbar-height);
 
 }
 .navcontainer{
@@ -18,15 +33,15 @@ nav{
      justify-content: space-between;
     width: 100%;
     align-items: center;
-   background-color: #333;
-    color: white;
+    background-color: var(--secondarycolor);
+    color:var(--maincolor);
     position: relative;
 }
 .logotitle{
     display:flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 20px;
+    padding: 0px 20px;
 }
 .logotitle img{
     width: 100px;
@@ -38,14 +53,28 @@ nav{
     align-items: center;
     justify-content:space-around;
     gap: 20px;
-    padding: 10px 20px;
+    padding: 0px 20px;
 }
 .navlinks a{
-    color: white;
+    color:var(--maincolor);
     text-decoration: none;
-   
+    position: relative;
+    text-decoration: none;
     font-size: 18px;
     justify-content: space-around;
+}
+.navlinks a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--maincolor);
+    transition: width 0.3s ease;
+}
+.navlinks a:hover::after{
+    width: 100%;
 }
 .menuicon{
       display:none;
@@ -63,12 +92,193 @@ nav{
     .navlinks.active{
     display:flex;
     flex-direction: column;
-    background-color: #b94242;
+    background-color: var(--secondarycolor);
+    color: var(--maincolor);
     position:absolute;
     top:100%;
     left:0;
     width:100%;
    
 }
+    .homepagecontent{
+        display: flex;
+        flex-direction: column;
+        margin-top: var(--navbar-height);
+        flex-wrap: nowrap;
+    }
+    .event-subheading{
+        padding: 10px;
+    }
+    
+}
+.homepagecontent{
+    display: flex;
+    background-image:url(galgotiasuniversity.jpg);
+   min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+     background-size: cover;
+     background-position: center;
+     padding: 20px;
+    margin-top:100px;
+    flex-wrap: wrap;
+    background-repeat: no-repeat;
+    width: 100vw;
+}
+.homepagecard{
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--maincolor);
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+    
+}
+.homepagecard::before{
+    content: "";
+    position: absolute;
+    inset: -5px;
+    background: conic-gradient(
+        transparent,
+        #9b816c,
+        transparent
+    );
+    pointer-events: none;
+    animation: rotate 3s linear infinite;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+ 
+}
 
+.btn,.eventpage button{
+   border-radius:20px;
+   width: fit-content;
+   padding: 10px 20px;
+   align-self: center;
+   font-weight: bold;
+   color: var(--maincolor);
+}
+.homepagecard:hover,.Eventpagecard:hover{
+   
+    transform: scale(1.05) translateY(-5px);
+        cursor: pointer;
+        
+}
+.eventpage{
+    display: flex;
+  
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image:url(galgotiasuniversitysecond.webp) ;
+    background-size: cover;
+     background-position: center;
+   background-repeat: no-repeat;
+
+}
+.homepagecard .btn {
+    display: inline-block;
+    text-decoration: none;
+    border: solid var(--maincolor);
+    background-color: var(--maincolor);
+    color: var(--secondarycolor);
+}
+
+
+.button{
+    
+   border: solid var(--maincolor);
+   opacity: 0.5;
+}
+.button:hover{
+    transition: 0.3s ease-in-out;
+    opacity:1;
+    background-color:var(--maincolor) ;
+    color: var(--secondarycolor);
+    cursor: pointer;
+}
+.Event-heading{
+     animation:fadeIn 0.8s ease forwards;
+     color: var(--secondarycolor);
+     font-weight: bold;
+     font-size:xx-large
+}
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.event-subheading{
+    color: var(--secondarycolor);
+    font-size: x-large;
+}
+.eventdetail{
+   
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding-top: var(--navbar-height);
+    align-items: center;
+    gap: 40px;
+}
+.inputdetails{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+   
+}
+.inputdetails input{
+    border-radius: 10px;
+    padding: 10px 25px;
+}
+.ri-search-2-line{
+    font-size: 30px;
+    color: var(--secondarycolor);
+    
+}
+.eventcards{
+   display: flex;
+   width: 100vw;
+  
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+flex-wrap: wrap;
+    
+   
+   
+}
+.Eventpagecard{
+     background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+    color: var(--maincolor);
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
 }
