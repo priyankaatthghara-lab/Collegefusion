@@ -622,7 +622,7 @@ flex-wrap: wrap;
 .footer-container{
     max-width: 1200px;
     margin: auto;
-   
+    padding: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
     gap: 2rem;
@@ -687,4 +687,8 @@ flex-wrap: wrap;
     margin-top: 2rem;
     padding: 1rem;
     color: var(--maincolor);
+}
+.active-card{
+    transform: translateY(-15px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }

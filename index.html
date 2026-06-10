@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extracurricular Activities</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "N3Q7a0OgzcdJjttyB",
+      });
+   })();
+</script>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
    <nav>
@@ -41,7 +50,7 @@
         Explore workshops, sports, cultural and technical events.
     </p>
     <div class="inputdetails">
-      <input type="text" placeholder="Search">
+      <input type="text" placeholder="Search" class="inputype">
       <i class="ri-search-2-line"></i>
     </div>
     <div class="eventcards">
@@ -145,25 +154,25 @@
 
                 <input
                     type="text"
-                    placeholder="Full Name"
+                    placeholder="Full Name" id="name"
                     required
                 >
 
                 <input
                     type="text"
-                    placeholder="Enrollment Number"
+                    placeholder="Enrollment Number" id="enrollmentnumber"
                     required
                 >
 
                 <input
                     type="email"
-                    placeholder="Email Address"
+                    placeholder="Email Address" id="emailaddress"
                     required
                 >
 
                 <input
                     type="tel"
-                    placeholder="Phone Number"
+                    placeholder="Phone Number" id="phonenumber"
                     required
                 >
 
@@ -199,7 +208,7 @@
 
                 </select>
 
-                <input type="text" placeholder=" Enter your choice">
+                <input type="text" placeholder=" Enter your choice" id="choice">
                 
                 <textarea
                     rows="5"
@@ -208,7 +217,7 @@
 
                 <button
                     type="submit"
-                    class="button">
+                    class="button" onclick="sendemail()">
                     Submit
                 </button>
 

@@ -49,7 +49,7 @@ clubdetails.innerHTML=clubcarddetails.map(clubcarddetail=>`
 
     `).join("");
     
-    const hackathonscard=[{newtitle:"Galgotias Unifest 2026 ", themetag:"Web Dev, AI, IoT, Cybersecurity", Date:"Date:7 April 2026",Duration:"Duration: 48hr",maxteamsize:"maximum: 4 members",minteamsize:" minimum: 1 member",prizepool:"Prize pool: 100000",destination:"#Contact",registrationstart:"4 April",registrationend:"14 April",organiser:"Organised by:Galgotias University-Qunatcraft", button:"Register"},{newtitle:"Galgotias Unifest 2026 ", themetag:"Web Dev, AI, IoT, Cybersecurity", Date:"Date:7 April 2026",Duration:"Duration: 48hr",organiser:"Organised by:Galgotias University-Qunatcraft",maxteamsize:"maximum: 4 members",minteamsize:"minimum: 1 member",destination:"#Contact",prizepool:"Prize pool: 100000",registrationstart:"4 April",registrationend:"14 April", button:"Register"},{newtitle:"Galgotias Unifest 2026 ",organiser:"Organised by:Galgotias University-Qunatcraft", themetag:"Web Dev, AI, IoT, Cybersecurity", Date:"Date:7 April 2026",Duration:"Duration: 48hr",destination:"#Contact",maxteamsize:"maximum: 4 members",minteamsize:"minimum: 1 member",prizepool:"Prize pool: 100000",registrationstart:"4 April",registrationend:"14 April", button:"Register"},{newtitle:"Galgotias Unifest 2026 ",organiser:"Galgotias University-Qunatcraft", themetag:"WebDev,AI,IoT,Cybersecurity", Date:"Date:7 April 2026",Duration:"Duration: 48hr",maxteamsize:"maximum: 4 members",minteamsize:"minimum: 1 member",prizepool:"Prize pool: 100000",registrationstart:"4 April",destination:"#Contact",registrationend:"14 April",organiser:"Organised by:Galgotias University-Qunatcraft", button:"Register"}]
+    const hackathonscard=[{newtitle:"Quanta 2026", themetag:"Web Dev, AI, IoT, Cybersecurity", Date:"Date:7 April 2026",Duration:"Duration: 48hr",maxteamsize:"maximum: 4 members",minteamsize:" minimum: 1 member",prizepool:"Prize pool: 100000",destination:"#Contact",registrationstart:"4 April",registrationend:"14 April",organiser:"Organised by:Galgotias University-Qunatcraft", button:"Register"},{newtitle:"SparX 2026", themetag:"Web Dev, AI, IoT, Cybersecurity", Date:"Date:7 April 2026",Duration:"Duration: 48hr",organiser:"Organised by:Galgotias University-Qunatcraft",maxteamsize:"maximum: 4 members",minteamsize:"minimum: 1 member",destination:"#Contact",prizepool:"Prize pool: 100000",registrationstart:"4 April",registrationend:"14 April", button:"Register"},{newtitle:"Nexido",organiser:"Organised by:Galgotias University-Qunatcraft", themetag:"Web Dev, AI, IoT, Cybersecurity", Date:"Date:7 April 2026",Duration:"Duration: 48hr",destination:"#Contact",maxteamsize:"maximum: 4 members",minteamsize:"minimum: 1 member",prizepool:"Prize pool: 100000",registrationstart:"4 April",registrationend:"14 April", button:"Register"},{newtitle:"Fino-Hack 2026 ",organiser:"Galgotias University-Qunatcraft", themetag:"WebDev,AI,IoT,Cybersecurity", Date:"Date:7 April 2026",Duration:"Duration: 48hr",maxteamsize:"maximum: 4 members",minteamsize:"minimum: 1 member",prizepool:"Prize pool: 100000",registrationstart:"4 April",destination:"#Contact",registrationend:"14 April",organiser:"Organised by:Galgotias University-Qunatcraft", button:"Register"}]
     let hackathondetail=document.querySelector(".hackathonscard");
     hackathondetail.innerHTML=hackathonscard.map(hackathon=>`
         <div class="hackathoncarddetail">
@@ -149,4 +149,52 @@ document.querySelectorAll(".newbutton").forEach(button=>{
         renderEvents(category);
     })
 })
-    
+let input=document.querySelector(".inputype");
+
+const inputeventcard=document.querySelectorAll(".Eventpagecard");
+input.addEventListener("input",()=>{
+    const searchtext=input.value.toLowerCase();
+   
+    inputeventcard.forEach(cardd=>{
+        const title=cardd.querySelector("h1").textContent.toLowerCase();
+        if(title.includes(searchtext)&&searchtext!==""){
+            cardd.classList.add("active-card");
+             cardd.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        })
+        }
+        else{
+            cardd.classList.remove("active-card");
+        }
+       
+    })
+})
+function sendemail(){
+
+    let parms = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("emailaddress").value,
+        enrollmentnumber: document.getElementById("enrollmentnumber").value,
+        phonenumber: document.getElementById("phonenumber").value,
+        choice: document.getElementById("choice").value
+    };
+
+    emailjs.send(
+        "service_e500516",
+        "template_5f1u5tc",
+        parms
+    )
+    .then(() => {
+        alert("Form submitted successfully!");
+    })
+    .catch((error) => {
+        console.error(error);
+        alert("Failed to send email.");
+    });
+
+}
+let form=document.querySelector("form");
+form.addEventListener("submit",(event)=>{
+    event.preventDefault();
+});
