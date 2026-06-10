@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 :root{
     --navbar-height:100px;
@@ -98,7 +99,7 @@ nav{
     top:100%;
     left:0;
     width:100%;
-   
+    
 }
     .homepagecontent{
         display: flex;
@@ -109,6 +110,8 @@ nav{
     .event-subheading{
         padding: 10px;
     }
+    
+   
     
 }
 .homepagecontent{
@@ -163,18 +166,23 @@ nav{
  
 }
 
-.btn,.eventpage button{
+.btn,.button,.newbutton{
    border-radius:20px;
    width: fit-content;
    padding: 10px 20px;
    align-self: center;
    font-weight: bold;
    color: var(--maincolor);
+   cursor: pointer; 
+   border: solid var(--maincolor);
+   
 }
-.homepagecard:hover,.Eventpagecard:hover{
+.homepagecard:hover,.Eventpagecard:hover,.clubdetailcard:hover,.hackathoncarddetail:hover,.companyvisit:hover{
    
     transform: scale(1.05) translateY(-5px);
         cursor: pointer;
+        border: solid var(--maincolor);
+       
         
 }
 .eventpage{
@@ -188,6 +196,7 @@ nav{
    background-repeat: no-repeat;
 
 }
+
 .homepagecard .btn {
     display: inline-block;
     text-decoration: none;
@@ -198,9 +207,7 @@ nav{
 
 
 .button{
-    
-   border: solid var(--maincolor);
-   opacity: 0.5;
+   
 }
 .button:hover{
     transition: 0.3s ease-in-out;
@@ -281,4 +288,206 @@ flex-wrap: wrap;
     overflow: hidden;
     border-radius: 20px;
     transition: 0.3s ease-in-out;
+
+}
+.Eventpagecard a{
+    text-decoration: none;
+}
+.clubs,.company{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: var(--navbar-height);
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+      color: var(--maincolor);
+      gap: 10px;
+}
+.clubs{
+  background-image: url(clubbackground.png);
+}
+.title,.visitors{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.clubtechpage{
+    display: flex;
+   
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.clubtechdetails,.hackathonscard,.companiesvisit,.visitorscard{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 20px;
+   margin-top: 15px;
+   width: 100%;
+   padding: 10px 20px;
+   box-sizing: border-box;
+  
+  
+}
+.image{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.clubdetailcard,.hackathoncarddetail,.visitorcard{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-radius: 12px;
+    padding:15px;
+    position: relative;
+    
+    
+     transition: 0.3s ease-in-out;
+  
+}
+.clubdetailcard{
+    height: 260px;
+}
+#visitorimage{
+    height: fit-content;
+}
+.hackathoncarddetail{
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(4px);
+    color: var(--maincolor);
+    text-align: center;
+    gap: 10px;
+}
+.hackathoncarddetail div{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 15px;
+    
+}
+
+.clubdetailcard{
+  background-size: cover;
+    background-position: center;
+}
+.textbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+     padding: 12px;
+  border-radius: 10px;
+   width: 100%;
+  
+  backdrop-filter: blur(4px);
+  gap: 5px;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+   
+}
+.Hackathons{
+    display: flex;
+    flex-direction: column;
+     align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding:40px 20px;
+    background-image: url(hackathons.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+.company{
+    background-image:url(comapny.png) ;
+}
+.visitors{
+    background-image:url(visitorsbackground.png) ;
+}
+.visitors{
+    padding-top: var(--navbar-height);
+    color: var(--maincolor);
+}
+.visitorcard{
+    height: 450px;
+}
+.designation{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.label{
+    font-weight: bold;
+}
+.companyvisit{
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+.event-modal{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.6);
+
+    z-index:1000;
+
+    justify-content:center;
+    align-items:center;
+}
+.event-modal.show{
+    display:flex;
+}
+.event-details-container{
+
+    background:white;
+    color:var(--maincolor);
+
+    width:80%;
+    max-width:900px;
+
+    max-height:80vh;
+
+    overflow-y:auto;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+    position:relative;
+}
+.ri-close-line{
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:var(--maincolor);
 }
